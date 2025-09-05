@@ -67,31 +67,29 @@ function checkDuplicatesBruteForce(numbers: number[]): void {
 function checkDuplicatesSorting(numbers: number[]): void {
   const sorted: number[] = numbers.sort((a: number, b: number) => a - b);
 
-  let foundDuplicate: boolean = false;
   for (let i = 0; i < sorted.length - 1; i++) {
     if (sorted[i] === sorted[i + 1]) {
-      foundDuplicate = true;
+      console.log("true");
+      return;
     }
   }
 
-  console.log(foundDuplicate ? "true" : "false");
+  console.log("false");
 }
 
-// // O(n) using a Set
-// function checkDuplicatesSet(numbers: number[]): void {
-//   console.log("\n🚀 O(n) Set Check:");
-//   const seen = new Set<number>();
+// O(n) using a Set
+function checkDuplicatesSet(numbers: number[]): void {
+  const numberSet = new Set();
 
-//   for (const num of numbers) {
-//     if (seen.has(num)) {
-//       console.log("true");
-//       return;
-//     }
-//     seen.add(num);
-//   }
-
-//   console.log("false");
-// }
+  for (const element of numbers) {
+    if (numberSet.has(element)) {
+      console.log("true");
+      return;
+    }
+    numberSet.add(element);
+  }
+  console.log("false");
+}
 
 // Input
 const rl = readline.createInterface({
@@ -116,9 +114,9 @@ rl.question(
           case "2":
             checkDuplicatesSorting(numbers);
             break;
-          //   case "3":
-          //     checkDuplicatesSet(numbers);
-          //     break;
+          case "3":
+            checkDuplicatesSet(numbers);
+            break;
           default:
             console.log("Invalid choice.");
         }
