@@ -1,9 +1,9 @@
 def has_duplicate(numbers: list[int])->bool:
     """
-    Checks if an array of number contains duplicate
+    Checks if an array of numbers contains duplicate
     
     Args:
-        number (list[int]): The list of numbers to check;
+        numbers (list[int]): The list of numbers to check;
         
     Returns:
         bool: True if duplicate, else false
