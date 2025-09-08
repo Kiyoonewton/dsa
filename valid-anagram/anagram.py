@@ -1,3 +1,5 @@
+from collections import Counter
+
 def checkAnagram(s: str, t:str)->bool :
     """
     Checks if s is an anagram of t;
@@ -9,20 +11,25 @@ def checkAnagram(s: str, t:str)->bool :
     Returns:
         bool: True if anagram, else false
     """
-    if len(s) != len(t):
-        return False
+    # if len(s) != len(t):
+    #     return False
     
-    count={}
+    # count={}
     
-    for char in s:
-        count[char] = count.get(char, 0) + 1
+    # for char in s:
+    #     count[char] = count.get(char, 0) + 1
         
-    for char in t:
-        if char not in count or count[char] == 0 :
-            return False
-        count[char] -=1
+    # for char in t:
+    #     if char not in count or count[char] == 0 :
+    #         return False
+    #     count[char] -=1
         
-    return True
+    # return True
+    
+    s_counter = Counter(s)
+    t_counter = Counter(t)
+
+    return s_counter == t_counter
 
 if __name__ == "__main__":
     anagram1 = input("Your first word: ")
